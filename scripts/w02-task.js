@@ -25,15 +25,24 @@ console.log("Script is running");
  //imageElement.setAttribute('alt', `Profile image of ${fullName}`);
  imageElement.src = 'images/IMG_2246.png';
  imageElement.alt = 'Profile image of Jocelyne Sainz';
+ 
  /* Step 5 - Array */
- const favoriteFoods = ['tacos', 'quesibirria', 'tteokbokki', 'onigiri', 'strawberry', 'mango', 'menudo'];
+ 
+/*
+this put it in a list instead 
+const favoriteFoods = ['tacos', 'quesibirria', 'tteokbokki', 'onigiri', 'strawberry', 'mango', 'menudo'];
  favoriteFoods.forEach(food => {
      const listItem = document.createElement('li');
      listItem.textContent = food;
      foodElement.appendChild(listItem);
- });
+ });*/
 
-
-
-
-
+/* Step 5 - Array */
+let favoriteFoods = ['tacos', 'quesibirria', 'tteokbokki', 'onigiri', 'strawberry', 'mango'];
+let favFood = ['Menudo'];
+favoriteFoods.push(favFood);
+foodElement.innerHTML += `<br>${favoriteFoods}`;
+favoriteFoods.splice(0, 1);
+foodElement.innerHTML += `<br>${favoriteFoods}`;
+favoriteFoods.pop();
+foodElement.innerHTML += `<br>${favoriteFoods}`;
