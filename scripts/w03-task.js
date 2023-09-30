@@ -44,11 +44,43 @@ const subtractNumbers = function() {
 };
   
   document.querySelector('#subtractNumbers').addEventListener('click', subtractNumbers);
+
+//step 4
 /* Arrow Function - Multiply Numbers */
+const multiply = (number1, number2) => {
+    return number1 * number2;
+};
+
+const mulitplyNumbers = () => {
+    let number1 = parseFloat(document.querySelector('#factor1').value);
+    let number2 = parseFloat(document.querySelector('#factor2').value);
+    document.querySelector('#product').value = multiply(number1, number2);
+};
+
+    document.querySelector('#multiplyNumbers').addEventListener('click', mulitplyNumbers);
 
 
+//step 5
 /* Open Function Use - Divide Numbers */
 
+// Function Declaration for division
+function divide(dividend, divisor) {
+    return dividend / divisor;
+  }
+  
+  // Function Declaration for getting values from HTML form controls and performing division
+  function divideNumbers() {
+    // Get values from HTML form controls and convert to numbers
+    let dividend = Number(document.querySelector('#dividend').value);
+    let divisor = Number(document.querySelector('#divisor').value);
+  
+    // Call the divide function and assign the result to the quotient HTML form element
+    document.querySelector('#quotient').value = divide(dividend, divisor);
+  }
+  
+  // Add a "click" event listener to the HTML button with an ID of divideNumbers
+  document.querySelector('#divideNumbers').addEventListener('click', divideNumbers);
+  
 
 /* Decision Structure */
 
