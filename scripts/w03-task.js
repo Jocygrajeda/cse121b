@@ -74,3 +74,17 @@ document.querySelector("#odds").textContent = odds;
 // array variable and assign the result to the HTML element with an ID of evens. 
 const evens = numbersArray.filter((numbers) => numbers % 2 !== 1);
 document.querySelector("#evens").textContent = evens;
+
+//Use the reduce() array method to sum the array variable elements and
+// assign the result to the HTML element with an ID of sumOfArray
+const sumA = numbersArray.reduce((sum, numbers) => sum + numbers);
+document.querySelector("#sumOfArray").textContent = sumA;
+
+//Use the map() array method to multiple each element in the array variable
+//by 2 and assign the result to the HTML element with an ID of multiplied. 
+const mult = numbersArray.map((numbers) => numbers * 2);
+document.querySelector("#multiplied").textContent = mult;
+
+//The sum of the array of numbers from 1-13 each multiplied by 2 is displayed using a .map() and a .reduce() method. (182)
+const sumMult = mult.reduce((sum, numbers) => sum + numbers, 0);
+document.querySelector("#sumOfMultiplied").textContent = sumMult;
