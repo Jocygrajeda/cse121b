@@ -62,3 +62,15 @@ document.querySelector("#year").value = currentYear;
 //const numbersA = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13];
 let numbersArray = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13];
   
+//Assign the value of the array variable to the HTML element with an ID of array. 
+document.querySelector("#array").textContent = numbersArray;
+
+//Use the filter() array method to find all of the odd numbers of the array variable
+// and assign the result to the HTML element with an ID of odds
+const odds = numbersArray.filter((numbers) => numbers % 2 !== 0);
+document.querySelector("#odds").textContent = odds;
+
+//Use the filter() array method to find all of the even numbers of the
+// array variable and assign the result to the HTML element with an ID of evens. 
+const evens = numbersArray.filter((numbers) => numbers % 2 !== 1);
+document.querySelector("#evens").textContent = evens;
