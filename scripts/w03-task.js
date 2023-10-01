@@ -86,9 +86,8 @@ const mult = numbersArray.map((numbers) => numbers * 2);
 document.querySelector("#multiplied").textContent = mult;
 
 //The sum of the array of numbers from 1-13 each multiplied by 2 is displayed using a .map() and a .reduce() method. (182)
-//const sumMult = mult.reduce((sum, numbers) => sum + numbers, 0);
-//document.querySelector("#sumOfMultiplied").textContent = sumMult;
-
-const multipliedArray = numbersArray.map(number => number * 2);
-const sumOfMultiplied = multipliedArray.reduce((sum, number) => sum + number, 0);
-document.querySelector('#sumOfMultiplied').textContent = sumOfMultiplied;
+const sumMult = mult.reduce((sum, numbers) => sum + numbers, 0);
+document.querySelector("#sumOfMultiplied").textContent = sumMult;
+//const multipliedArray = numbersArray.map(number => number * 2);
+//const sumOfMultiplied = multipliedArray.reduce((sum, number) => sum + number, 0);
+//document.querySelector('#sumOfMultiplied').textContent = sumOfMultiplied;
