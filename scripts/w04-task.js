@@ -28,6 +28,7 @@ myProfile.placesLived.push({
 );
 
 //dom
+//Assign the value of the name property of the myProfile object to the HTML element with an ID of name. 
 document.querySelector('#name').textContent = myProfile.name;
 
 const photoElement = document.getElementById('photo');
