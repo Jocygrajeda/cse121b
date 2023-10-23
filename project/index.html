@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fitness Tracker</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1>Fitness Tracker</h1>
+    </header>
+    <main>
+        <section id="log-workout">
+            <h2>Log Your Workout</h2>
+            <form id="workoutForm">
+                <label for="exercise">Select Exercise:</label>
+                <select id="exercise" name="exercise">
+                    <!-- Populate with exercise options dynamically using JavaScript -->
+                </select>
+
+                <label for="duration">Duration (minutes):</label>
+                <input type="number" id="duration" name="duration" required>
+
+                <button type="button" onclick="logWorkout()">Log Workout</button>
+            </form>
+        </section>
+        <section id="progress-graph">
+            <h2>Your Fitness Journey</h2>
+            <canvas id="fitnessChart"></canvas>
+        </section>
+    </main>
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
+
