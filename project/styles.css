@@ -1,12 +1,17 @@
 body {
-    font-family: Arial, sans-serif;
+    font-family: 'unbounded', sans-serif;
+    font-size: 20px;
     margin: 0;
     padding: 0;
+    color: #276fbf;
+    background-color: #ffe8d8; 
 }
 
+
+/*fitness tracker title*/
 header {
-    background-color: #333;
-    color: #fff;
+    background-color: #152B51;
+    color: #f6f4f3;
     text-align: center;
     padding: 1rem;
 }
@@ -34,23 +39,25 @@ input, select {
     margin-bottom: 16px;
     padding: 8px;
 }
+ 
 
+/*log workout button*/
 button {
     padding: 10px;
-    background-color: #555;
+    background-color: #8596b4;
     color: #fff;
     border: none;
     cursor: pointer;
 }
 
+
+/*log workout button*/
 button:hover {
     background-color: #555;
 }
 
-canvas {
-    border: 1px solid #ccc;
-}
 
-h1 {
-    text-align: center;
+/*graph line*/
+canvas {
+    border: 1px solid #DAA520;
 }
