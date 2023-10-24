@@ -1,85 +1,83 @@
+document.addEventListener('DOMContentLoaded', function () {
+  const apiKey = '96cad3fe1c38a90b243f058d96b32b3124757cf5';
+  const apiUrl = 'https://wger.de/api/v2/exercise/';
 
+  const exerciseSelect = document.getElementById('exercise');
+  const logWorkoutBtn = document.getElementById('log-workout-btn');
+  const durationInput = document.getElementById('duration');
+  const progressChart = document.getElementById('progress-chart').getContext('2d');
 
-// Function to fetch exercise data from the Wger Workout Manager API
-async function getExerciseData() {
-    const response = await fetch('https://wger.de/api/v2/exercise/');
-    const data = await response.json();
-    return data.results;
-  }
-  
-  // Function to populate the exercise dropdown
-  function populateExerciseDropdown(exerciseData) {
-    const exerciseDropdown = document.getElementById('exercise');
-  
-    exerciseData.forEach(exercise => {
-      const option = document.createElement('option');
-      option.value = exercise.id;
-      option.text = exercise.name;
-      exerciseDropdown.appendChild(option);
-    });
-  }
-  
-  // Function to handle user input and log workout
-  function logWorkout() {
-    const selectedExercise = document.getElementById('exercise').value;
-    const sets = document.getElementById('sets').value;
-    const reps = document.getElementById('reps').value;
-    const weight = document.getElementById('weight').value;
-  
-    // Perform workout logging logic here
-    console.log('Exercise:', selectedExercise);
-    console.log('Sets:', sets);
-    console.log('Reps:', reps);
-    console.log('Weight:', weight);
-  
-    // For simplicity, let's assume the data is logged successfully
-  
-    updateChart();
-  }
-  
-  // Function to update the progress chart
-  async function updateChart() {
-    const userId = prompt('Enter user ID:'); 
-  
+  let chartData = {
+    labels: generateLabels(),
+    datasets: [{
+      label: 'Minutes of Exercise',
+      data: Array(30).fill(0),
+      backgroundColor: 'rgba(75, 192, 192, 0.2)',
+      borderColor: 'rgba(75, 192, 192, 1)',
+      borderWidth: 1,
+    }],
+  };
+
+  async function fetchExercises() {
+    const headers = {
+      'Authorization': `Token ${apiKey}`,
+    };
+
     try {
-      const workoutData = await getWorkoutData(userId);
-      const chartData = prepareChartData(workoutData);
-      renderChart(chartData);
+      const response = await fetch(apiUrl, { headers });
+      if (!response.ok) {
+        throw new Error(`HTTP error! Status: ${response.status}`);
+      }
+
+      const exercises = await response.json();
+
+      exercises.results.forEach(exercise => {
+        const option = document.createElement('option');
+        option.value = exercise.id;
+        option.text = exercise.name;
+        exerciseSelect.appendChild(option);
+      });
     } catch (error) {
-      console.error('Error fetching or processing data:', error);
+      console.error('Error fetching exercises:', error);
     }
   }
-  
-  // Function to handle goal setting
-  function setGoal() {
-    const goal = document.getElementById('goal').value;
-    console.log('Fitness Goal:', goal);
-  
-    // Perform goal-setting logic here
-  }
-  
-  // Function to create and render the progress chart
-  function renderChart(chartData) {
-    const ctx = document.getElementById('progress-chart').getContext('2d');
-    new Chart(ctx, {
+
+  fetchExercises();
+
+  logWorkoutBtn.addEventListener('click', function () {
+    const selectedExerciseId = exerciseSelect.value;
+    const duration = parseInt(durationInput.value);
+
+    // Log workout or update progress data here
+    console.log('Selected Exercise ID:', selectedExerciseId);
+    console.log('Duration:', duration);
+
+    // Update chart data based on user input
+    const dayIndex = new Date().getDate() - 1; // Get the current day index
+    chartData.datasets[0].data[dayIndex] = duration;
+
+    // Update the chart
+    updateChart();
+  });
+
+  function updateChart() {
+
+    if (progressChart.chart) {
+      progressChart.chart.destroy();
+    }
+    const config = {
       type: 'bar',
       data: chartData,
-      options: {
-        scales: {
-          y: {
-            beginAtZero: true,
-          },
-        },
-      },
-    });
+    };
+
+    progressChart.chart = new Chart(progressChart, config);
   }
-  
-  // Initialize the app
-  document.addEventListener('DOMContentLoaded', async () => {
-    const exerciseData = await getExerciseData();
-    populateExerciseDropdown(exerciseData);
-  
-    document.getElementById('log-workout-btn').addEventListener('click', logWorkout);
-    document.getElementById('set-goal-btn').addEventListener('click', setGoal);
-  });
-  
+
+  function generateLabels() {
+    const labels = [];
+    for (let i = 1; i <= 30; i++) {
+      labels.push(`Day ${i}`);
+    }
+    return labels;
+  }
+});

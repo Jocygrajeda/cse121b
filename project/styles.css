@@ -6,21 +6,21 @@ body {
     font-family: 'josefin sans', sans-serif;
     margin: 0;
     padding: 0;
-    background-color: #131212;
-    color: aliceblue;
-    font-size: 20px;
+    background-color: #fffdfe;
+    color: rgb(0, 0, 0);
+    font-size: 25px;
 }
 
 #app {
     max-width: 800px;
     margin: 20px auto;
-    background-color: #0c090a;
+    background-color: #fcc4c4;
     padding: 20px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
 h2 {
-    color: #e74c9a;
+    color: #0f0f0f;
 }
 
 label {
@@ -40,21 +40,21 @@ select, input {
 
 button {
     padding: 10px;
-    background-color: #a395d3;
-    color: #fff;
+    background-color: #1ca84b;
+    color: #000000;
     border: none;
     cursor: pointer;
 }
 
 button:hover {
-    background-color: #ff0080;
+    background-color: #193acc;
 }
 
 canvas {
     width: 100%;
     height: 300px;
     margin-top: 20px;
-    border: 1px solid #faf7f7;
+    border: 1px solid #f0e1e1;
 }
 
 
