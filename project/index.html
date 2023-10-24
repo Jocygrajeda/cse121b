@@ -5,34 +5,40 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Fitness Tracker</title>
     <link rel="stylesheet" href="styles.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 <body>
-    <header>
-        <h1>Fitness Tracker</h1>
-    </header>
-    <main>
-        <section id="log-workout">
-            <h2>Log Your Workout</h2>
-            <form id="workoutForm">
-                <label for="exercise">Select Exercise:</label>
-                <select id="exercise" name="exercise">
-                    <!-- Populate with exercise options dynamically using JavaScript -->
-                </select>
+    <div id="app">
+        <div>
+            <h2>Exercise Library</h2>
+            <label for="exercise">Select an exercise:</label>
+            <select id="exercise"></select>
+        </div>
+        
+        <div>
+            <h2>Workout Logging</h2>
+            <label for="sets">Sets:</label>
+            <input type="number" id="sets" placeholder="Enter sets">
+            <label for="reps">Reps:</label>
+            <input type="number" id="reps" placeholder="Enter reps">
+            <label for="weight">Weight (kg):</label>
+            <input type="number" id="weight" placeholder="Enter weight">
+            <button id="log-workout-btn">Log Workout</button>
+        </div>
+        
+        <div>
+            <h2>Progress Chart</h2>
+            <canvas id="progress-chart"></canvas>
+        </div>
 
-                <label for="duration">Duration (minutes):</label>
-                <input type="number" id="duration" name="duration" required>
+        <div>
+            <h2>Goal Setting</h2>
+            <label for="goal">Set your fitness goal:</label>
+            <input type="text" id="goal" placeholder="Enter your goal">
+            <button id="set-goal-btn">Set Goal</button>
+        </div>
+    </div>
 
-                <button type="button" onclick="logWorkout()">Log Workout</button>
-            </form>
-        </section>
-        <section id="progress-graph">
-            <h2>Your Fitness Journey</h2>
-            <canvas id="fitnessChart"></canvas>
-        </section>
-    </main>
-    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    <script src="script.js"></script>
+    <script type="module" src="app.js"></script>
 </body>
 </html>
-
