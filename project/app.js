@@ -1,5 +1,4 @@
-// Assuming you have included Chart.js, replace 'YOUR_CHART_JS_CDN' with the actual CDN
-// <script src="YOUR_CHART_JS_CDN"></script>
+
 
 // Function to fetch exercise data from the Wger Workout Manager API
 async function getExerciseData() {
@@ -28,7 +27,6 @@ async function getExerciseData() {
     const weight = document.getElementById('weight').value;
   
     // Perform workout logging logic here
-    // You can send this data to your server or store it locally
     console.log('Exercise:', selectedExercise);
     console.log('Sets:', sets);
     console.log('Reps:', reps);
@@ -36,13 +34,12 @@ async function getExerciseData() {
   
     // For simplicity, let's assume the data is logged successfully
   
-    // After logging, update the chart (replace with your actual logic)
     updateChart();
   }
   
   // Function to update the progress chart
   async function updateChart() {
-    const userId = prompt('Enter user ID:'); // You might want to use a more sophisticated input method
+    const userId = prompt('Enter user ID:'); 
   
     try {
       const workoutData = await getWorkoutData(userId);
