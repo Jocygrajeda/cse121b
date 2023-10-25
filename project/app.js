@@ -73,11 +73,16 @@ document.addEventListener('DOMContentLoaded', function () {
     progressChart.chart = new Chart(progressChart, config);
   }
 
-  function generateLabels() {
+  /*function generateLabels() {
     const labels = [];
     for (let i = 1; i <= 30; i++) {
       labels.push(`Day ${i}`);
     }
     return labels;
+  }*/
+
+  function generateLabels() {
+    return Array.from({ length: 30 }, (_, index) => `Day ${index + 1}`);
   }
+  
 });
