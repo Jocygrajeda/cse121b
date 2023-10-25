@@ -53,15 +53,16 @@ document.addEventListener('DOMContentLoaded', function () {
     console.log('Duration:', duration);
 
     // Update chart data based on user input
-    const dayIndex = new Date().getDate() - 1; // Get the current day index
-    chartData.datasets[0].data[dayIndex] = duration;
+    const dayIndex = new Date().getDate() - 1;
+    chartData.datasets[0].data = chartData.datasets[0].data.map((value, index) =>
+      index === dayIndex ? duration : value
+    );
 
     // Update the chart
     updateChart();
   });
 
   function updateChart() {
-
     if (progressChart.chart) {
       progressChart.chart.destroy();
     }
@@ -73,16 +74,7 @@ document.addEventListener('DOMContentLoaded', function () {
     progressChart.chart = new Chart(progressChart, config);
   }
 
-  /*function generateLabels() {
-    const labels = [];
-    for (let i = 1; i <= 30; i++) {
-      labels.push(`Day ${i}`);
-    }
-    return labels;
-  }*/
-
   function generateLabels() {
     return Array.from({ length: 30 }, (_, index) => `Day ${index + 1}`);
   }
-  
 });
