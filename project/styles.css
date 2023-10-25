@@ -6,21 +6,22 @@ body {
     font-family: 'josefin sans', sans-serif;
     margin: 0;
     padding: 0;
-    background-color: #fffdfe;
-    color: rgb(0, 0, 0);
+    background-color: #b4a6ad;
+    color: rgb(95, 5, 5);
     font-size: 25px;
 }
 
 #app {
     max-width: 800px;
     margin: 20px auto;
-    background-color: #fcc4c4;
+    background-color: #f0e3e3;
     padding: 20px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
 h2 {
     color: #0f0f0f;
+    font-weight: 900;
 }
 
 label {
@@ -47,7 +48,7 @@ button {
 }
 
 button:hover {
-    background-color: #193acc;
+    background-color: #916d87;
 }
 
 canvas {
